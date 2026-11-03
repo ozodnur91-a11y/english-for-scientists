@@ -1,0 +1,7 @@
+1. Supabase SQL Editor da cloud-setup.sql ni ishga tushiring.
+2. Authentication > Providers > Email ni yoqing (odatda yoqilgan).
+3. GitHub repository ga index.html, skills.html, daily.html va cloud.js ni yuklang.
+4. Saytda pastki o‘ngdagi ⚙ orqali email bilan ro‘yxatdan o‘ting, emailni tasdiqlang va kiring.
+5. Telefonda va kompyuterda bir xil akkauntdan foydalaning.
+6. Sinxronlash tugmasi yangilangan ma’lumotlarni tortadi.
+Eslatma: natijalarni avval JSON eksport qilib zaxiralang. GitHub Pages public: maxfiy kalitlarni yuklamang.
