@@ -2,7 +2,14 @@
 const URL='https://nzyplsntjuocemdsigaw.supabase.co',KEY='sb_publishable_drmhyMIiUh7HldE4OCI9xg_9GYkw5eL',K=['physics_reading_master_v1','scientist-skills-records-v1','scientist-daily-coach-v1'];
 const STORE='efs-auth-v1';let session=null,busy=false,timeout=null;
 function msg(t){let e=document.getElementById('cloud-state');if(e)e.textContent=t}
-function headers(token){return {'apikey':KEY,'Content-Type':'application/json',...(token?{'Authorization':'Bearer '+token}:{})}}
+function headers(token){
+  return {
+    'apikey': KEY,
+    'Content-Type': 'application/json',
+    'Prefer': 'resolution=merge-duplicates',
+    ...(token ? {'Authorization': 'Bearer ' + token} : {})
+  };
+}
 async function request(path,method='GET',data=null,token=null){let r=await fetch(URL+path,{method,headers:headers(token),body:data===null?undefined:JSON.stringify(data)});let text=await r.text(),obj;try{obj=JSON.parse(text)}catch{obj={message:text}}if(!r.ok)throw Error(obj.msg||obj.error_description||obj.message||('HTTP '+r.status));return obj}
 function load(){try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch{return null}}
 function persist(){if(session)localStorage.setItem(STORE,JSON.stringify(session));else localStorage.removeItem(STORE)}
